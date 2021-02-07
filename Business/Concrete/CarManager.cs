@@ -29,7 +29,7 @@ namespace Business.Concrete
                 Console.WriteLine("Araba günlük fiyatı O'dan büyük olmalıdır olmalıdır. Kontrol ederek, tekrar deneyiniz.");
             }
         }
-        public List<Car> GetAll()
+        public List<Car> GetDailyPrice()
         {
             return _carDal.GetAll();
         }
