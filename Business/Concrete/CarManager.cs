@@ -34,25 +34,29 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public void GetByColorsId()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Car> GetCarName(string max, string min)
         {
             throw new NotImplementedException();
         }
-
-        public void GetCarsByBrandId()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Car> GetDailyPrice(decimal max, decimal min = 0)
         {
             return _carDal.GetAll(c => c.DailyPrice <= max && c.DailyPrice >= min);
+        }
+        public List<Car> GetCarDetailDto()
+        {
+            return _carDal.GetAll();
+        }
 
+        public void Delete(Car car)
+        {
+            _carDal.Delete(car);
+            Console.WriteLine("Araba silindi.");
+        }
+
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
+            Console.WriteLine("Araba güncellendi.");
         }
     }
 }

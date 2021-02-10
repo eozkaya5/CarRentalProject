@@ -10,9 +10,38 @@ namespace Business.Concrete
 {
     public class BrandManager : IBrandService
     {
-        public void GetCarsByBrandId()
-        {
+        IBrandDal _brandDal;
 
+        public BrandManager(IBrandDal brandDal)
+        {
+            _brandDal = brandDal;
+        }
+
+        public void Delete(Brand brand)
+        {
+            _brandDal.Delete(brand);
+            Console.WriteLine("Marka silindi.");
+        }
+
+        public List<Brand> GetAll()
+        {
+            return _brandDal.GetAll();
+        }
+
+        public List<Brand> GetById(int id)
+        {
+            return _brandDal.GetAll(b => b.Id == id);
+        }
+        public void Add(Brand brand)
+        {
+            _brandDal.Add(brand);
+            Console.WriteLine("Marka kayıt edildi.");
+        }
+
+        public void Update(Brand brand)
+        {
+            _brandDal.Update(brand);
+            Console.WriteLine("Marka güncellendi.");
         }
     }
 }
