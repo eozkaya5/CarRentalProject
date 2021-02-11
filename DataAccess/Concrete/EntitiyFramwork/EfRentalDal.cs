@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntitiyFramwork
     {
         public void GetDetail()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
