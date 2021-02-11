@@ -10,11 +10,11 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntitiyFramwork
 {
-    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapProjectContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (ReCapProjectContext context = new ReCapProjectContext())
+            using (CarRentalContext context = new CarRentalContext())
             {
                 var resault = from c in context.Cars 
                               
