@@ -1,5 +1,8 @@
 ﻿
 using Business.Abstract;
+using Business.Contants;
+using Core.Utilities.Result.Abstract;
+using Core.Utilities.Result.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -17,46 +20,47 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
             if (car.DailyPrice > 0 && car.CarName.Length > 2)
             {
-                Console.WriteLine("Araba Kayıt edildi.");
+                return new SuccessResult(Messages.Added);
             }
             else
             {
-                Console.WriteLine("Araba ismi minimum 2 karakterli olmalıdır. " + "\n" + "ve");
-                Console.WriteLine("Araba günlük fiyatı O'dan büyük olmalıdır olmalıdır. Kontrol ederek, tekrar deneyiniz.");
+                return new ErrorResult(Messages.MaintenanceTime);
+
             }
+
         }
-        public List<Car> GetDailyPrice()
+        public IDataResult<List<Car>> GetDailyPrice()
         {
-            return _carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
-        public List<Car> GetCarName(string max, string min)
+        public IDataResult<List<Car>> GetCarName(string max, string min)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
-        public List<Car> GetDailyPrice(decimal max, decimal min = 0)
+        public IDataResult<List<Car>> GetDailyPrice(decimal max, decimal min = 0)
         {
-            return _carDal.GetAll(c => c.DailyPrice <= max && c.DailyPrice >= min);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.DailyPrice <= max && c.DailyPrice >= min), Messages.Listed);
         }
-        public List<Car> GetCarDetailDto()
+        public IDataResult<List<Car>> GetCarDetailDto()
         {
-            return _carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-            Console.WriteLine("Araba silindi.");
+            return new SuccessResult(Messages.Deleted);
         }
 
-        public void Update(Car car)
+        public IResult Update(Car car)
         {
             _carDal.Update(car);
-            Console.WriteLine("Araba güncellendi.");
+            return new SuccessResult(Messages.Updated);
         }
     }
 }
