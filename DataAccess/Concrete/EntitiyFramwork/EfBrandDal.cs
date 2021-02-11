@@ -8,8 +8,8 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntitiyFramwork
 {
-    public class EfBrandDal :EfEntityRepositoryBase <Brand, CarRentalContext>, IBrandDal
+    public class EfBrandDal : EfEntityRepositoryBase<Brand, CarRentalContext>, IBrandDal
     {
-        
+
     }
 }
