@@ -14,6 +14,6 @@ namespace Business.Abstract
 
         IResult Update(Rental rental);
 
-        IDataResult<List<Rental>> GitAll();
+        IDataResult<List<Rental>> GetAll();
     }
 }

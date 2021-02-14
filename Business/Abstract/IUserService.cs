@@ -10,9 +10,9 @@ namespace Business.Abstract
     {
         IResult Add(User user);
 
-        IResult Delete(User car);
+        IResult Delete(User user);
 
-        IResult Update(User car);
+        IResult Update(User user);
       
         IDataResult<List<User>> GetAll();
     }

@@ -25,9 +25,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Added);
         }
 
-        public IResult Delete(User car)
+        public IResult Delete(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Add(user);
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<User>> GetAll()
@@ -35,9 +36,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.Listed);
         }
 
-        public IResult Update(User car)
+        public IResult Update(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Add(user);
+            return new SuccessResult(Messages.Updated);
         }
     }
 }
