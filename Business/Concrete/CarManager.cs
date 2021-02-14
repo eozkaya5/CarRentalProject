@@ -62,5 +62,10 @@ namespace Business.Concrete
             _carDal.Update(car);
             return new SuccessResult(Messages.Updated);
         }
+
+        public IDataResult<List<Car>> Get()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

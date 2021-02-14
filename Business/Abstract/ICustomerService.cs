@@ -14,6 +14,6 @@ namespace Business.Abstract
 
         IResult Update(Customer customer);
 
-        IDataResult<List<Customer>> GitAll();
+        IDataResult<List<Customer>> GetAll();
     }
 }

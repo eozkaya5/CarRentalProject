@@ -37,7 +37,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
-        public IDataResult<List<Rental>> GitAll()
+        public IDataResult<List<Rental>> GetAll()
         {
 
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.Listed);

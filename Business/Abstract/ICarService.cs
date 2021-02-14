@@ -20,5 +20,8 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetCarName(string max, string min);
 
         IDataResult<List<Car>> GetCarDetailDto();
+
+        IDataResult<List<Car>> Get();
+
     }
 }
