@@ -7,8 +7,13 @@ using System.Text;
 
 namespace Business.Abstract
 {
+    public delegate void MyDelegate();
+    //void olan ve parametre olmayan methodlara delegelik eder (Elçilik gibi)
+
     public interface ICarService
     {
+        void SendMessage();
+
         IResult Add(Car car);
 
         IResult Delete(Car car);
