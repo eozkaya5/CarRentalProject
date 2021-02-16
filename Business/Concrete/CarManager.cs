@@ -67,5 +67,10 @@ namespace Business.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public void SendMessage()
+        {
+            Console.WriteLine("Hello, Mrs. Özkaya");
+        }
     }
 }
