@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using Core.Utilities.Result.Abstract;
 using DataAccess.Concrete.EntitiyFramwork;
 using DataAccess.Concrete.InMemory;
@@ -24,8 +25,22 @@ namespace ConsoleUI
 
             //CustomerManager();
 
+            //Delegeler();
+
+
             Console.ReadLine();
         }
+
+        #region Delegeler kullanımı
+
+        //private static void Delegeler()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+        //    MyDelegate myDelegate = carManager.SendMessage;
+        //    myDelegate += carManager.SendMessage;
+        //    myDelegate();
+        //}
+        #endregion
 
         #region Müşteri ekle ve Özellikleri listelettir.
 
