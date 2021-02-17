@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Events;
 using Core.Utilities.Result.Abstract;
 using DataAccess.Concrete.EntitiyFramwork;
 using DataAccess.Concrete.InMemory;
@@ -24,8 +25,27 @@ namespace ConsoleUI
 
             //CustomerManager();
 
+            #region Events kullanımı
+
+            //CarEvent carEvent = new CarEvent(38);
+            //carEvent.CarName = "Megane";
+            //carEvent.StockControlEvent += Car_StockControlEvent;
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    carEvent.Sell(10);
+            //}
+            #endregion
+
             Console.ReadLine();
         }
+        #region Event bildirim
+
+        //private static void Car_StockControlEvent()
+        //{
+        //    Console.WriteLine("Araba bulunmamaktadır.");
+        //}
+        #endregion
 
         #region Müşteri ekle ve Özellikleri listelettir.
 
