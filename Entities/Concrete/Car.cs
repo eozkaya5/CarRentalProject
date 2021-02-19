@@ -7,13 +7,12 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    [Table("Cars")]// Car tablosu sql' de Cars tablosuna denk gelir
+  
     public class Car : IEntity
     {
         public int Id { get; set; }
         public int BrandId { get; set; }
-        public int ColorId { get; set; }
-        [RequiredProperty]//Carname girmek zorunda
+        public int ColorId { get; set; }      
         public string CarName { get; set; }
         public int Modelyear { get; set; }
         public decimal DailyPrice { get; set; }
