@@ -1,13 +1,18 @@
 ﻿
 using Business.Abstract;
 using Business.Contants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace Business.Concrete
 {
@@ -22,16 +27,9 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.DailyPrice > 0 && car.CarName.Length > 2)
-            {
-                return new SuccessResult(Messages.Added);
-            }
-            else
-            {
-                return new ErrorResult(Messages.MaintenanceTime);
-
-            }
-
+            ValidationTool.Validate(new CarValidator(), car);
+            _carDal.Add(car);
+            return new SuccessResult(Messages.Added);
         }
         public IDataResult<List<Car>> GetDailyPrice()
         {
