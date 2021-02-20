@@ -1,4 +1,5 @@
-﻿using Castle.DynamicProxy;
+﻿using Castle.Components.DictionaryAdapter;
+using Castle.DynamicProxy;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Core.Utilities.Interceptors
     {
         public int Priority { get; set; }//Öncelik anlamına gelir
    
-        public void Intercept(IInvocation invocation)
+        public virtual void Intercept(IInvocation invocation)
         {
             
         }
