@@ -7,6 +7,9 @@ using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Core.Utilities.Security.Encryption;
+using Microsoft.IdentityModel.Tokens;
+using Core.Extensions;
 
 namespace Core.Utilities.Security.Jwt
 {
@@ -64,5 +67,5 @@ namespace Core.Utilities.Security.Jwt
         }
     }
 }
-}
+
  
