@@ -12,5 +12,7 @@ namespace Business.Contants
         public static string Updated = "Güncelleme işlemi başarılı bir şekilde gerçekleşmiştir.";
         public static string MaintenanceTime = "Sistem bakımdadır. Daha sonra tekrar deneyiniz.";
         public static string CarImageLimitExceeded = "Beşten fazla resim eklenemez.";
+
+        public static string UserRegistered = "Kullanıcı eklendi.";
     }
 }
