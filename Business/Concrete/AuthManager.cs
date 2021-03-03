@@ -3,14 +3,14 @@ using Business.Contants;
 using Core.Entities.Concrete;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
-using Core.Utilities.Security.Hashing;
+using Core.Utilities.Security.Hashings;
 using Core.Utilities.Security.Jwt;
 using Entities.Dtos;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
-namespace Business.Concrete
+
+namespace Business.ConCrete
 {
     public class AuthManager : IAuthService
     {
@@ -22,6 +22,7 @@ namespace Business.Concrete
             _userService = userService;
             _tokenHelper = tokenHelper;
         }
+
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
             byte[] passwordHash, passwordSalt;
@@ -71,5 +72,4 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
     }
-}
 }
