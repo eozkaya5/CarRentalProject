@@ -20,7 +20,7 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetCarName(string max, string min);
         IDataResult<List<Car>> GetCarDetailDto();
         IDataResult<List<Car>> Get();
-        IResult AddTransactional();//uygulamada tutarlığı sağlamak için kullanılır.
+        IResult AddTransactional(Car car);//uygulamada tutarlığı sağlamak için kullanılır.
 
 
     }

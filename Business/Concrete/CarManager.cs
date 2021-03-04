@@ -4,6 +4,7 @@ using Business.Contants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autfac.Validation;
 using Core.Aspects.Caching;
+using Core.Aspects.Transaction;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
@@ -57,7 +58,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
-       // [SecuredOperation("car.add.admin")]
+        // [SecuredOperation("car.add.admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
@@ -74,6 +75,18 @@ namespace Business.Concrete
         public void SendMessage()
         {
             Console.WriteLine("Hello, Mrs. Özkaya");
+        }
+
+        [TransactionScopeAspect]
+        public IResult AddTransactional(Car car)
+        {
+            Add(car);
+            if (car.DailyPrice < 15)
+            {
+                throw new Exception("");
+            }
+            Add(car);
+            return null;
         }
     }
 }
