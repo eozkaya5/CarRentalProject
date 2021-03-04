@@ -4,6 +4,7 @@ using Business.Contants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autfac.Validation;
 using Core.Aspects.Caching;
+using Core.Aspects.Performance;
 using Core.Aspects.Transaction;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result.Abstract;
@@ -39,6 +40,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(3)]//Performansta sorun çıktığında uyarır.
         public IDataResult<List<Car>> GetCarName(string max, string min)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
