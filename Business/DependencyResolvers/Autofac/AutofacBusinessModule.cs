@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Business.DependencyResolvers.Autofac
 {
-    public class AutofacBusinessModule: Module 
+    public class AutofacBusinessModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -22,7 +22,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
 
-           // builder.RegisterType<CarImagesManager>().As<ICarImagesService>().SingleInstance();
+
             builder.RegisterType<EfCarImagesDal>().As<ICarImagesService>().SingleInstance();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();// sorguluyor
