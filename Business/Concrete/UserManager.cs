@@ -30,7 +30,12 @@ namespace Business.Concrete
         {
             _userDal.Add(user);
             return new SuccessResult(Messages.Deleted);
-        }         
+        }
+
+        public IDataResult<List<User>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
 
         public IDataResult<List<User>> GetByMail(string email)
         {
@@ -48,6 +53,14 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Updated);
         }
 
-     
+        User IUserService.GetByMail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<OperationClaim> IUserService.GetClaims(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
