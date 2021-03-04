@@ -13,20 +13,15 @@ namespace Business.Abstract
     public interface ICarService
     {
         void SendMessage();
-
         IResult Add(Car car);
-
         IResult Delete(Car car);
-
         IResult Update(Car car);
-
         IDataResult<List<Car>> GetDailyPrice(decimal max, decimal min);
-
         IDataResult<List<Car>> GetCarName(string max, string min);
-
         IDataResult<List<Car>> GetCarDetailDto();
-
         IDataResult<List<Car>> Get();
+        IResult AddTransactional();//uygulamada tutarlığı sağlamak için kullanılır.
+
 
     }
 }
