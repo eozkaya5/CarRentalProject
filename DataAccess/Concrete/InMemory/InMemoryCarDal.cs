@@ -1,11 +1,12 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
-using Entities.DTOs;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -70,10 +71,7 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.Description = car.Description;
         }
 
-        List<CarDetailDto> ICarDal.GetCarDetails()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
 
