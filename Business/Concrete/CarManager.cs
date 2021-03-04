@@ -3,6 +3,7 @@ using Business.Abstract;
 using Business.Contants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autfac.Validation;
+using Core.Aspects.Caching;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
@@ -36,6 +37,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetCarName(string max, string min)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
@@ -55,6 +57,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
+       // [SecuredOperation("car.add.admin")]
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
             _carDal.Update(car);
